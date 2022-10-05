@@ -4,8 +4,8 @@ namespace insoLyrics.Lyrics
 {
     public class LyricLine
     {
-        public double Time { get; private set; }
-        public string Text { get; private set; }
+        public double Time { get; private set; } = 0;
+        public string Text { get; private set; } = string.Empty;
 
         public LyricLine() { }
 

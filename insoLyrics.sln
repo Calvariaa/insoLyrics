@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "insoLyrics", "insoLyrics\insoLyrics.csproj", "{1FC2E73B-1C2B-4347-BCE3-F4503BCAEA2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insoLyrics.Tests", "insoLyrics.Tests\insoLyrics.Tests.csproj", "{77A78DBF-8C7A-41C4-B3FD-B6BCFC20DF19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insoLyrics.Tests", "insoLyrics.Tests\insoLyrics.Tests.csproj", "{70D16610-596A-49C8-A0D8-96FC6C0FC32F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{1FC2E73B-1C2B-4347-BCE3-F4503BCAEA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC2E73B-1C2B-4347-BCE3-F4503BCAEA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC2E73B-1C2B-4347-BCE3-F4503BCAEA2B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77A78DBF-8C7A-41C4-B3FD-B6BCFC20DF19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77A78DBF-8C7A-41C4-B3FD-B6BCFC20DF19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77A78DBF-8C7A-41C4-B3FD-B6BCFC20DF19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77A78DBF-8C7A-41C4-B3FD-B6BCFC20DF19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D16610-596A-49C8-A0D8-96FC6C0FC32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D16610-596A-49C8-A0D8-96FC6C0FC32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D16610-596A-49C8-A0D8-96FC6C0FC32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D16610-596A-49C8-A0D8-96FC6C0FC32F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

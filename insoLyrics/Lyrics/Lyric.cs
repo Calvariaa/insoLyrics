@@ -8,8 +8,8 @@ namespace insoLyrics.Lyrics
 {
     public class Lyric : List<LyricLine>
     {
-        public string Title { get; set; }
-        public string Artist { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Artist { get; set; } = string.Empty;
         public double Sync { get; set; }
 
         public Lyric() { }

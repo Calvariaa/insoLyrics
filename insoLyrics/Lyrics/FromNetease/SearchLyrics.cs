@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace insoLyrics.Lyrics.SearchLyrics
+namespace insoLyrics.Lyrics.getLyrics
 {
     public class SearchLyrics
     {

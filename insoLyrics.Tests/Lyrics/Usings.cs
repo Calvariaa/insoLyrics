@@ -1,4 +1,4 @@
 global using Microsoft.VisualStudio.TestTools.UnitTesting;
 global using insoLyrics.Lyrics;
-global using insoLyrics.Lyrics.SearchMetadata;
-global using insoLyrics.Lyrics.SearchLyrics;
+global using insoLyrics.Lyrics.getMetadata;
+global using insoLyrics.Lyrics.getLyrics;

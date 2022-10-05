@@ -10,7 +10,7 @@ using System.Text.Unicode;
 using insoLyrics.Beatmap;
 using System.Text.Json.Nodes;
 
-namespace insoLyrics.Lyrics.SearchMetadata
+namespace insoLyrics.Lyrics.getMetadata
 {
     public class SearchMetadata
     {
@@ -23,8 +23,8 @@ namespace insoLyrics.Lyrics.SearchMetadata
         }
         public SearchMetadata(BeatmapMetadata map)
         {
-            Title = map.Title;
-            Artist = map.Artist;
+            Title = map.TitleUnicode;
+            Artist = map.ArtistUnicode;
         }
         public SearchMetadata(string t, string a)
         {
@@ -43,7 +43,7 @@ namespace insoLyrics.Lyrics.SearchMetadata
             Console.WriteLine(jsonMeta!["result"]!["songCount"]!);
 
             var res = string.Empty;
-            if (((uint)jsonMeta!["result"]!["songCount"]!) != 0)
+            if (((uint)jsonMeta!["code"]!) == 200 && ((uint)jsonMeta!["result"]!["songCount"]!) != 0)
             {
                 res = jsonMeta!["result"]!["songs"]![0]!.ToJsonString().Split(',')[0].Split(':')[1];
 

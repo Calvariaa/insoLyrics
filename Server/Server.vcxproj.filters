@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="bass.h">
+      <Filter>Libraries\BASS</Filter>
+    </ClInclude>
+    <ClInclude Include="bass_fx.h">
+      <Filter>Libraries\BASS</Filter>
+    </ClInclude>
+    <ClInclude Include="detours.h">
+      <Filter>Libraries\detours</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{d5f42003-5bc5-43ce-a691-7960ac109d39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\BASS">
+      <UniqueIdentifier>{04a5009d-0f22-455e-992a-fdc53a71a5c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\detours">
+      <UniqueIdentifier>{decad8cf-21c7-4d21-ae92-f9b70163eb2a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="bass.lib">
+      <Filter>Libraries\BASS</Filter>
+    </Library>
+    <Library Include="bass_fx.lib">
+      <Filter>Libraries\BASS</Filter>
+    </Library>
+    <Library Include="detours.lib">
+      <Filter>Libraries\detours</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core.cpp" />
+  </ItemGroup>
+</Project>

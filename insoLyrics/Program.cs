@@ -1,17 +1,72 @@
+﻿using insoLyrics.Interop;
+using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("insoLyrics.Tests")]
+
 namespace insoLyrics
 {
-    internal static class Program
+    internal class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Settings());
+            using (new Mutex(true, Constants._MutexName, out bool createdNew))
+            {
+                Osu.Show();
+                if (createdNew)
+                {
+                    // 删除更新前的文件
+                    Task.Run(() => IO.FileEx.PostDel(Application.ExecutablePath + Constants._BakExt));
+
+                    Osu.RunMessageServer();
+                    Osu.ListenMessageAsync();
+                    Osu.HookKeyboard();
+
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new CanvasForm());
+
+                    Osu.UnhookKeyboard();
+                }
+            }
+        }
+
+        public static int IntB(byte[] buff, int offset, int len = 4)
+        {
+            if (len-- > 4)
+            {
+                len = 3;
+            }
+            var a = 0;
+            for (var i = 0; i <= len; i++)
+            {
+                a |= buff[offset + i] << 8 * (len - i);
+            }
+            return a;
+        }
+
+        public static long LongB(byte[] buff, int offset, int len = 8)
+        {
+            if (len > 8)
+            {
+                len = 8;
+            }
+            len -= 4;
+            return (long)IntB(buff, offset) << 8 * len | IntB(buff, offset + 4, len);
+        }
+
+        public static int Int(byte[] buff, int offset, int len = 4)
+        {
+            var a = 0;
+            for (var i = 0; i < len && i < 4; i++)
+            {
+                a |= buff[offset + i] << 8 * i;
+            }
+            return a;
         }
     }
 }

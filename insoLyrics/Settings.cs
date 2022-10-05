@@ -55,7 +55,6 @@ namespace insoLyrics
         private static int _BlockSyncOnHide = -1;
         private static int _SuppressKey = -1;
         private static int _ShowWhileOsuTop = -1;
-        private static int _IfRemoveKorean = -1;
 
         public static int LineCount
         {
@@ -486,30 +485,6 @@ namespace insoLyrics
             }
         }
 
-        public static bool IfRemoveKorean
-        {
-            get
-            {
-                if (_IfRemoveKorean < 0 || _IfRemoveKorean > 1)
-                {
-                    try
-                    {
-                        _IfRemoveKorean = Convert.ToInt32(Get("PROGRAM", "IfRemoveKorean"));
-                        if (_IfRemoveKorean < 0 || _IfRemoveKorean > 1)
-                        {
-                            throw new OverflowException();
-                        }
-                    }
-                    catch
-                    {
-                        _IfRemoveKorean = 0;
-                    }
-                }
-                return _IfRemoveKorean == 1;
-            }
-        }
-
-
         private static StringFormat _StringFormat = null;
         private static SolidBrush _Brush = null;
         private static Pen _Border = null;
@@ -599,7 +574,6 @@ namespace insoLyrics
             checkBox1.Checked = BlockSyncOnHide;
             checkBox2.Checked = SuppressKey;
             checkBox3.Checked = ShowWhileOsuTop;
-            checkBox4.Checked = IfRemoveKorean;
             Loaded = true;
         }
 
@@ -677,7 +651,6 @@ namespace insoLyrics
             _BlockSyncOnHide = checkBox1.Checked ? 1 : 0;
             _SuppressKey = checkBox2.Checked ? 1 : 0;
             _ShowWhileOsuTop = checkBox3.Checked ? 1 : 0;
-            _IfRemoveKorean = checkBox4.Checked ? 1 : 0;
 
             UpdateScreen();
         }
@@ -721,7 +694,6 @@ namespace insoLyrics
                 Set("PROGRAM", "BlockSyncOnHide", _BlockSyncOnHide.ToString());
                 Set("PROGRAM", "SuppressKey", _SuppressKey.ToString());
                 Set("DESIGN", "ShowWhileOsuTop", _ShowWhileOsuTop.ToString());
-                Set("PROGRAM", "IfRemoveKorean", _IfRemoveKorean.ToString());
             }
             else
             {
@@ -744,7 +716,6 @@ namespace insoLyrics
                 _BlockSyncOnHide = -1;
                 _SuppressKey = -1;
                 _ShowWhileOsuTop = -1;
-                _IfRemoveKorean = -1;
 
                 UpdateScreen();
             }

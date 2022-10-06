@@ -76,7 +76,6 @@ namespace insoLyrics.Lyrics
         }
 
         public string AudioPath { get; set; }
-        public Audio.AudioInfo AudioInfo { get; set; }
         public Beatmap.BeatmapMetadata BeatmapMetadata { get; set; }
 
         public LyricManager()
@@ -100,10 +99,6 @@ namespace insoLyrics.Lyrics
             if (e.AudioPath != AudioPath)
             {
                 AudioPath = e.AudioPath;
-                using (var fs = new FileStream(e.AudioPath, FileMode.Open, FileAccess.Read))
-                {
-                    AudioInfo = Audio.Formats.AudioDecoder.GetDecoder(fs)?.Decode(fs);
-                }
                 using (var sr = new StreamReader(e.BeatmapPath))
                 {
                     BeatmapMetadata = Beatmap.Formats.BeatmapDecoder.GetDecoder(sr)?.Decode(sr);
@@ -131,7 +126,7 @@ namespace insoLyrics.Lyrics
             AudioChanged?.Invoke(null, null);
             Task.Run(async () =>
             {
-                Lyric ret = LyricSource.GetLyric(BeatmapMetadata);
+                 Lyric ret = LyricSource.GetLyric(BeatmapMetadata);
                 ret?.Insert(0, new LyricLine());
 
                 cts.Token.ThrowIfCancellationRequested();

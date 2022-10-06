@@ -23,8 +23,8 @@ namespace insoLyrics.Lyrics.getMetadata
         }
         public SearchMetadata(BeatmapMetadata map)
         {
-            Title = map.TitleUnicode;
-            Artist = map.ArtistUnicode;
+            Title = map.TitleUnicode ?? map.Title;
+            Artist = map.ArtistUnicode ?? map.Artist;
         }
         public SearchMetadata(string t, string a)
         {

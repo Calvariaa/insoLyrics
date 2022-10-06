@@ -6,10 +6,19 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Server.dll" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="insoLyrics.Tests" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PreBuildEvent>copy /y "$(SolutionDir)Server\bin\$(Configuration)\Server.dll" "$(MSBuildProjectDirectory)"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

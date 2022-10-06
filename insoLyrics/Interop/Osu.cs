@@ -44,7 +44,7 @@ namespace insoLyrics.Interop
                 // 由于 osu! 没有运行，弹窗警告
                 if (Registry.GetValue(@"HKEY_CLASSES_ROOT\osu!\shell\open\command", null, null) is string exec)
                 {
-                    _process = Process.Start(exec.Split()[0].Trim('"'));
+                    _process = Process.Start(exec.Split('"')[1]);
                     return Process;
                 }
 
